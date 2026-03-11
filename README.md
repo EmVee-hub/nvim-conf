@@ -7,4 +7,4 @@ EMVEE nvim config.
 - Go
 - Java
 - Git
-
+- Python
