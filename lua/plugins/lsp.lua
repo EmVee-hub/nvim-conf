@@ -1,7 +1,12 @@
 return {
   'neovim/nvim-lspconfig',
-vim.lsp.enable('helm_ls'),
-vim.lsp.enable('gopls'),
-vim.lsp.enable('pyright')
-}
+  dependencies = { 'hrsh7th/cmp-nvim-lsp' },
+  config = function()
+    -- Advertise nvim-cmp completion capabilities to every server
+    vim.lsp.config('*', {
+      capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    })
 
+    vim.lsp.enable({ 'yamlls', 'helm_ls', 'gopls', 'pyright' })
+  end,
+}

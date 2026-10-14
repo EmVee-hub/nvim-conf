@@ -22,9 +22,6 @@ return {
         { name = 'luasnip' },
       }),
     })
-
-    -- Ensure gopls works with nvim-cmp
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
   end
 }
 

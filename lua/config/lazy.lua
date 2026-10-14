@@ -14,14 +14,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-vim.lsp.enable('yamlls')
-vim.lsp.enable('helm_ls')
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.lazyvim_picker = "fzf"
 vim.g.maplocalleader = "\\"
+-- nvim-tree replaces netrw; must be disabled before any plugin loads
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
