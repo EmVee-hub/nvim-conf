@@ -14,15 +14,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-vim.lsp.config('yamlls', {
-  settings = {
-    yaml = {
-      schemas = {
-        ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*.{yml,yaml}",
-      },
-    },
-  },
-})
 vim.lsp.enable('yamlls')
 vim.lsp.enable('helm_ls')
 -- Make sure to setup `mapleader` and `maplocalleader` before
