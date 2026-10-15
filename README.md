@@ -8,3 +8,6 @@ EMVEE nvim config.
 - Java
 - Git
 - Python
+
+GitHub Actions workflow files under `.github/workflows/` use the GitHub workflow
+JSON schema through `yamlls` for YAML validation and completions.
