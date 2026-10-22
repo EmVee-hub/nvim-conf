@@ -16,6 +16,23 @@ return {
     },
     notes_subdir = "notes",
     new_notes_location = "notes_subdir",
+    open_notes_in = "vsplit",
+    note_id_func = function(title)
+      local slug = (title or ""):lower():gsub("[^%w]+", "-"):gsub("^%-", ""):gsub("%-$", "")
+      if slug == "" then
+        slug = "untitled-" .. os.date("%Y%m%d-%H%M%S")
+      end
+
+      local notes_dir = vim.fn.expand("~/proj/kms/notes")
+      local id = slug
+      local suffix = 2
+      while vim.uv.fs_stat(notes_dir .. "/" .. id .. ".md") do
+        id = slug .. "-" .. suffix
+        suffix = suffix + 1
+      end
+
+      return id
+    end,
     completion = {
       nvim_cmp = true,
     },
