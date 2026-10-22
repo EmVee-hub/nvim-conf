@@ -16,7 +16,7 @@ return {
     },
     notes_subdir = "notes",
     new_notes_location = "notes_subdir",
-    open_notes_in = "vsplit",
+    open_notes_in = "hsplit",
     note_id_func = function(title)
       local slug = (title or ""):lower():gsub("[^%w]+", "-"):gsub("^%-", ""):gsub("%-$", "")
       if slug == "" then
